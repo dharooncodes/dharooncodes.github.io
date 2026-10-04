@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniyaal Haroon - Software Engineer</title>
+    <style>
+        :root {
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+            --card-bg: #ffffff;
+            --primary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --secondary-accent: #3498db;
+            --border-color: #e0e0e0;
+            --font-main: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --card-bg: #1e1e1e;
+            --primary-color: #64ffda;
+            --accent-color: #ff6b6b;
+            --secondary-accent: #4dabf7;
+            --border-color: #333;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 40px;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        header {
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin: 0 0 5px 0;
+            font-size: 2.8em;
+            letter-spacing: -0.5px;
+        }
+
+        .contact-info {
+            font-size: 0.95em;
+            color: var(--secondary-accent);
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.5em;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            display: inline-block;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 5px;
+        }
+
+        p.profile-text {
+            text-align: justify;
+        }
+
+        .grid-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .card {
+            background-color: rgba(100, 100, 100, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-accent);
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateX(5px);
+            background-color: rgba(100, 100, 100, 0.1);
+        }
+
+        .card-title {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+            color: var(--text-color);
+        }
+
+        .card-subtitle {
+            font-size: 0.9em;
+            color: var(--secondary-accent);
+            margin-bottom: 10px;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background-color: var(--secondary-accent);
+            color: #fff;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        [data-theme="dark"] .tag {
+            background-color: rgba(77, 171, 247, 0.2);
+            color: var(--secondary-accent);
+            border: 1px solid var(--secondary-accent);
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: transparent;
+            color: var(--text-color);
+            border: 2px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--secondary-accent);
+            color: var(--secondary-accent);
+        }
+
+        @media (max-width: 768px) {
+            .grid-section {
+                grid-template-columns: 1fr;
+            }
+            .theme-toggle {
+                position: relative;
+                margin-bottom: 20px;
+                display: block;
+                width: 100%;
+            }
+            .container {
+                margin: 20px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <button class="theme-toggle" onclick="toggleTheme()">🌓 Toggle Theme</button>
+            <h1>Daniyaal Haroon</h1>
+            <div class="contact-info">
+                <span>📍 Al Jasra, Bahrain</span>
+                <span>📞 +973 33362719</span>
+                <span>✉️ <a href="mailto:daniyaalharoon@gmail.com">daniyaalharoon@gmail.com</a></span>
+            </div>
+        </header>
+
+        <section>
+            <h2>Mission Statement</h2>
+            <p class="profile-text">To leverage my skills in software engineering and leadership to develop innovative and practical technology solutions, while continuously learning and growing in a dynamic environment. I aim to contribute effectively to teams, solve real-world problems, and build a strong foundation for a successful career in the technology industry.</p>
+        </section>
+
+        <section>
+            <h2>Personal Profile</h2>
+            <p class="profile-text">A highly motivated Software Engineering student and proactive tech leader with a robust foundation in problem-solving and programming. Currently serving as Co-Founder and Lead Developer for a self-employed game development venture, leveraging deep expertise in GDScript and the Godot engine to craft engaging digital experiences through innovative design. Possesses comprehensive technical proficiency in Python, Java, and C++, driven by a strong passion for building impactful real-world applications. Backed by A-level qualifications from the British School of Bahrain and valuable industry insights gained through professional internships at CTM360® and Aion Digital. A collaborative team manager dedicated to delivering high-quality solutions in interactive media, equipped with a proven ability to lead and a strong willingness to continuously learn, adapt, and drive technical excellence within the industry.</p>
+        </section>
+
+        <div class="grid-section">
+            <section>
+                <h2>Work Experience</h2>
+                <div class="card">
+                    <div class="card-title">EmberEngine.gg</div>
+                    <div class="card-subtitle">Co-Founder & Lead Developer</div>
+                </div>
+                <div class="card" style="margin-top: 15px;">
+                    <div class="card-title">Aion Digital</div>
+                    <div class="card-subtitle">Professional Internship</div>
+                </div>
+                <div class="card" style="margin-top: 15px;">
+                    <div class="card-title">CTM360</div>
+                    <div class="card-subtitle">Professional Internship</div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Education</h2>
+                <div class="card">
+                    <div class="card-title">British University of Bahrain</div>
+                    <div class="card-subtitle">BSc (Hons) Software Engineering (International) | 2025 – 2028 (Expected)</div>
+                </div>
+                <div class="card" style="margin-top: 15px;">
+                    <div class="card-title">British School of Bahrain</div>
+                    <div class="card-subtitle">A Levels: Biology, Chemistry, Mathematics | Completed: 2021</div>
+                </div>
+            </section>
+        </div>
+
+        <section>
+            <h2>Technical Skills</h2>
+            <div class="tag-container">
+                <span class="tag">Python (Advanced)</span>
+                <span class="tag">Java (Intermediate)</span>
+                <span class="tag">C++ (Intermediate)</span>
+                <span class="tag">HTML5 / CSS3</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">PHP</span>
+                <span class="tag">MySQL (Basic)</span>
+                <span class="tag">GDScript / Godot</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>Core Skills</h2>
+            <ul>
+                <li><strong>Leadership & Management:</strong> Captained esports and sports teams; managed esports teams in Europe.</li>
+                <li><strong>Professional:</strong> Time Management, Communication & Teamwork, Critical Thinking.</li>
+                <li><strong>Soft Skills:</strong> Diplomacy (Model United Nations), Adaptability & Willingness to Learn.</li>
+            </ul>
+        </section>
+
+        <div class="grid-section">
+            <section>
+                <h2>Projects</h2>
+                <a href="https://github.com/dharooncodes/EE_Proj_B" target="_blank" class="project-link">🔗 EE_Proj_B (GitHub)</a><br>
+                <a href="https://github.com/dharooncodes/EE_Proj_A" target="_blank" class="project-link">🔗 EE_Proj_A (GitHub)</a>
+            </section>
+
+            <section>
+                <h2>Languages</h2>
+                <ul>
+                    <li><strong>Fluent:</strong> English, Urdu</li>
+                    <li><strong>Learning:</strong> Arabic, French, German, Punjabi</li>
+                </ul>
+            </section>
+        </div>
+
+        <section>
+            <h2>Interests</h2>
+            <div class="tag-container" style="margin-top: 10px;">
+                <span class="tag">Esports & Competitive Gaming</span>
+                <span class="tag">Team Sports & Leadership</span>
+                <span class="tag">Software Development</span>
+                <span class="tag">Fintech</span>
+                <span class="tag">Banking</span>
+                <span class="tag">Politics</span>
+                <span class="tag">Investment & Markets</span>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Check for saved user preference, if any, on load of the website
+        const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+        
+        if (currentTheme) {
+            document.body.setAttribute('data-theme', currentTheme);
+        }
+
+        function toggleTheme() {
+            const body = document.body;
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+    </script>
+</body>
+</html>

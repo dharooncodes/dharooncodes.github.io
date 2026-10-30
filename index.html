@@ -3,327 +3,325 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daniyaal Haroon - Software Engineer</title>
+    <title>Daniyaal Haroon - Software Engineer & Developer</title>
+    <!-- Tailwind CSS for robust, responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'Segoe UI', 'system-ui', '-apple-system', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
     <style>
         :root {
-            --bg-color: #f4f7f6;
-            --text-color: #333;
+            --bg-color: #f1f5f9;
             --card-bg: #ffffff;
-            --primary-color: #2c3e50;
-            --accent-color: #e74c3c;
-            --secondary-accent: #3498db;
-            --border-color: #e0e0e0;
-            --font-main: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --border-color: #cbd5e1;
+            --primary: #1e293b;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --tag-bg: #eff6ff;
+            --tag-text: #1d4ed8;
         }
 
-        [data-theme="dark"] {
-            --bg-color: #121212;
-            --text-color: #e0e0e0;
-            --card-bg: #1e1e1e;
-            --primary-color: #64ffda;
-            --accent-color: #ff6b6b;
-            --secondary-accent: #4dabf7;
-            --border-color: #333;
+        .dark {
+            --bg-color: #0b0f19;
+            --card-bg: #131b2e;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #1e293b;
+            --primary: #38bdf8;
+            --accent: #3b82f6;
+            --accent-hover: #60a5fa;
+            --tag-bg: rgba(59, 130, 246, 0.15);
+            --tag-text: #60a5fa;
         }
 
         body {
-            font-family: var(--font-main);
             background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            transition: all 0.3s ease;
+            color: var(--text-main);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 40px;
+        .custom-card {
             background-color: var(--card-bg);
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
         }
 
-        header {
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 20px;
-            margin-bottom: 30px;
-            position: relative;
+        .custom-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.08);
+            border-color: var(--accent);
         }
 
-        h1 {
-            color: var(--primary-color);
-            margin: 0 0 5px 0;
-            font-size: 2.8em;
-            letter-spacing: -0.5px;
-        }
-
-        .contact-info {
-            font-size: 0.95em;
-            color: var(--secondary-accent);
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .contact-info a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-
-        h2 {
-            color: var(--primary-color);
-            font-size: 1.5em;
-            margin-top: 35px;
-            margin-bottom: 15px;
-            display: inline-block;
-            border-bottom: 3px solid var(--accent-color);
-            padding-bottom: 5px;
-        }
-
-        p.profile-text {
-            text-align: justify;
-        }
-
-        .grid-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .card {
-            background-color: rgba(100, 100, 100, 0.05);
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid var(--secondary-accent);
-            transition: transform 0.2s ease;
-        }
-
-        .card:hover {
-            transform: translateX(5px);
-            background-color: rgba(100, 100, 100, 0.1);
-        }
-
-        .card-title {
-            font-weight: bold;
-            font-size: 1.1em;
-            margin-bottom: 5px;
-            color: var(--text-color);
-        }
-
-        .card-subtitle {
-            font-size: 0.9em;
-            color: var(--secondary-accent);
-            margin-bottom: 10px;
-        }
-
-        ul {
-            padding-left: 20px;
-            margin: 10px 0;
-        }
-
-        li {
-            margin-bottom: 8px;
-        }
-
-        .tag-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .tag {
-            background-color: var(--secondary-accent);
-            color: #fff;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            font-weight: 500;
-        }
-
-        [data-theme="dark"] .tag {
-            background-color: rgba(77, 171, 247, 0.2);
-            color: var(--secondary-accent);
-            border: 1px solid var(--secondary-accent);
-        }
-
-        .project-link {
-            display: inline-block;
-            margin-bottom: 10px;
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .project-link:hover {
-            text-decoration: underline;
-        }
-
-        .theme-toggle {
-            position: absolute;
-            top: 0;
-            right: 0;
-            background-color: transparent;
-            color: var(--text-color);
-            border: 2px solid var(--border-color);
-            padding: 8px 16px;
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: 600;
+        .tag-pill {
+            background-color: var(--tag-bg);
+            color: var(--tag-text);
             transition: all 0.2s ease;
         }
 
-        .theme-toggle:hover {
-            border-color: var(--secondary-accent);
-            color: var(--secondary-accent);
+        .tag-pill:hover {
+            filter: brightness(0.95);
         }
 
-        @media (max-width: 768px) {
-            .grid-section {
-                grid-template-columns: 1fr;
-            }
-            .theme-toggle {
-                position: relative;
-                margin-bottom: 20px;
-                display: block;
-                width: 100%;
-            }
-            .container {
-                margin: 20px;
-                padding: 20px;
-            }
+        /* Smooth custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 4px;
         }
     </style>
 </head>
-<body>
+<body class="antialiased selection:bg-blue-500 selection:text-white min-h-screen py-10 px-4 sm:px-6 lg:px-8">
 
-    <div class="container">
-        <header>
-            <button class="theme-toggle" onclick="toggleTheme()">🌓 Toggle Theme</button>
-            <h1>Daniyaal Haroon</h1>
-            <div class="contact-info">
-                <span>📍 Al Jasra, Bahrain</span>
-                <span>📞 +973 33362719</span>
-                <span>✉️ <a href="mailto:daniyaalharoon@gmail.com">daniyaalharoon@gmail.com</a></span>
+    <main class="max-w-4xl mx-auto custom-card rounded-2xl p-6 sm:p-10 relative overflow-hidden">
+        
+        <!-- Theme Toggle Button -->
+        <button onclick="toggleTheme()" aria-label="Toggle Theme" class="absolute top-6 right-6 sm:top-8 sm:right-8 z-20 flex items-center gap-2 px-3.5 py-2 rounded-full text-sm font-semibold border transition-all duration-200" style="background-color: var(--card-bg); border-color: var(--border-color); color: var(--text-main);">
+            <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            <span id="theme-text" class="hidden sm:inline">Light Mode</span>
+        </button>
+
+        <!-- Header Section with Headshot Placeholder -->
+        <header class="border-b pb-8 mb-8" style="border-color: var(--border-color);">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+                <!-- Headshot Placeholder Frame -->
+                <div class="relative group flex-shrink-0">
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl flex items-center justify-center font-bold text-2xl sm:text-3xl shadow-md border-2 overflow-hidden" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8); color: #ffffff; border-color: var(--border-color);">
+                        <!-- Avatar Initials or Image placeholder -->
+                        <span class="tracking-wider">DH</span>
+                    </div>
+                    <div class="absolute -bottom-1 -right-1 bg-emerald-500 w-4 h-4 rounded-full border-2 border-white dark:border-gray-900" title="Available for opportunities"></div>
+                </div>
+
+                <!-- Name & Contact info -->
+                <div class="flex-grow pr-16 sm:pr-0">
+                    <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight" style="color: var(--text-main);">
+                        Daniyaal Haroon
+                    </h1>
+                    <p class="text-base sm:text-lg font-medium mt-1 text-blue-600 dark:text-blue-400">
+                        Software Engineer & Tech Leader
+                    </p>
+                    
+                    <!-- Contact links & socials -->
+                    <div class="flex flex-wrap items-center gap-4 mt-3 text-sm" style="color: var(--text-muted);">
+                        <span class="flex items-center gap-1.5">
+                            📍 Al Jasra, Bahrain
+                        </span>
+                        <span class="flex items-center gap-1.5">
+                            📞 +973 33362719
+                        </span>
+                        <a href="mailto:daniyaalharoon@gmail.com" class="flex items-center gap-1.5 hover:text-blue-600 transition-colors">
+                            ✉️ daniyaalharoon@gmail.com
+                        </a>
+                    </div>
+
+                    <!-- Social / Code Profiles -->
+                    <div class="flex flex-wrap items-center gap-3 mt-4">
+                        <a href="http://linkedin.com/in/daniyaal-haroon-19b024280/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-blue-600 text-white hover:bg-blue-700 transition-colors shadow-sm">
+                            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                            LinkedIn Profile
+                        </a>
+                        <a href="https://github.com/dharooncodes" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-gray-800 text-white dark:bg-gray-700 hover:bg-gray-900 transition-colors shadow-sm">
+                            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            GitHub Profile
+                        </a>
+                    </div>
+                </div>
             </div>
         </header>
 
-        <section>
-            <h2>Mission Statement</h2>
-            <p class="profile-text">To leverage my skills in software engineering and leadership to develop innovative and practical technology solutions, while continuously learning and growing in a dynamic environment. I aim to contribute effectively to teams, solve real-world problems, and build a strong foundation for a successful career in the technology industry.</p>
+        <!-- Mission Statement -->
+        <section class="mb-8">
+            <h2 class="text-xl font-bold mb-3 inline-block border-b-2 border-blue-600 pb-1" style="color: var(--text-main);">
+                Mission Statement
+            </h2>
+            <p class="text-sm sm:text-base leading-relaxed text-justify" style="color: var(--text-muted);">
+                To leverage my skills in software engineering and leadership to develop innovative and practical technology solutions, while continuously learning and growing in a dynamic environment. I aim to contribute effectively to teams, solve real-world problems, and build a strong foundation for a successful career in the technology industry.
+            </p>
         </section>
 
-        <section>
-            <h2>Personal Profile</h2>
-            <p class="profile-text">A highly motivated Software Engineering student and proactive tech leader with a robust foundation in problem-solving and programming. Currently serving as Co-Founder and Lead Developer for a self-employed game development venture, leveraging deep expertise in GDScript and the Godot engine to craft engaging digital experiences through innovative design. Possesses comprehensive technical proficiency in Python, Java, and C++, driven by a strong passion for building impactful real-world applications. Backed by A-level qualifications from the British School of Bahrain and valuable industry insights gained through professional internships at CTM360® and Aion Digital. A collaborative team manager dedicated to delivering high-quality solutions in interactive media, equipped with a proven ability to lead and a strong willingness to continuously learn, adapt, and drive technical excellence within the industry.</p>
+        <!-- Personal Profile -->
+        <section class="mb-8">
+            <h2 class="text-xl font-bold mb-3 inline-block border-b-2 border-blue-600 pb-1" style="color: var(--text-main);">
+                Personal Profile
+            </h2>
+            <p class="text-sm sm:text-base leading-relaxed text-justify" style="color: var(--text-muted);">
+                A highly motivated Software Engineering student and proactive tech leader with a robust foundation in problem-solving and programming. Currently serving as Co-Founder and Lead Developer for a self-employed game development venture, leveraging deep expertise in GDScript and the Godot engine to craft engaging digital experiences through innovative design. Possesses comprehensive technical proficiency in Python, Java, and C++, driven by a strong passion for building impactful real-world applications. Backed by A-level qualifications from the British School of Bahrain and valuable industry insights gained through professional internships at CTM360® and Aion Digital. A collaborative team manager dedicated to delivering high-quality solutions in interactive media, equipped with a proven ability to lead and a strong willingness to continuously learn, adapt, and drive technical excellence within the industry.
+            </p>
         </section>
 
-        <div class="grid-section">
+        <!-- Two Column Grid for Experience & Education -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <!-- Work Experience -->
             <section>
-                <h2>Work Experience</h2>
-                <div class="card">
-                    <div class="card-title">EmberEngine.gg</div>
-                    <div class="card-subtitle">Co-Founder & Lead Developer</div>
-                </div>
-                <div class="card" style="margin-top: 15px;">
-                    <div class="card-title">Aion Digital</div>
-                    <div class="card-subtitle">Professional Internship</div>
-                </div>
-                <div class="card" style="margin-top: 15px;">
-                    <div class="card-title">CTM360</div>
-                    <div class="card-subtitle">Professional Internship</div>
+                <h2 class="text-xl font-bold mb-4 inline-block border-b-2 border-blue-600 pb-1" style="color: var(--text-main);">
+                    Work Experience
+                </h2>
+                <div class="space-y-4">
+                    <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/40 hover:border-blue-500 transition-all">
+                        <div class="font-bold text-base" style="color: var(--text-main);">EmberEngine.gg</div>
+                        <div class="text-sm text-blue-600 dark:text-blue-400 font-medium mt-0.5">Co-Founder & Lead Developer</div>
+                        <div class="text-xs mt-1 text-slate-500 dark:text-slate-400">May 2026 – Present</div>
+                    </div>
+                    <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/40 hover:border-blue-500 transition-all">
+                        <div class="font-bold text-base" style="color: var(--text-main);">Aion Digital</div>
+                        <div class="text-sm text-blue-600 dark:text-blue-400 font-medium mt-0.5">Professional Internship</div>
+                        <div class="text-xs mt-1 text-slate-500 dark:text-slate-400">Jun 2026 – Jul 2026</div>
+                    </div>
+                    <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/40 hover:border-blue-500 transition-all">
+                        <div class="font-bold text-base" style="color: var(--text-main);">CTM360</div>
+                        <div class="text-sm text-blue-600 dark:text-blue-400 font-medium mt-0.5">Professional Internship</div>
+                        <div class="text-xs mt-1 text-slate-500 dark:text-slate-400">May 2023 – Jul 2023</div>
+                    </div>
                 </div>
             </section>
 
+            <!-- Education -->
             <section>
-                <h2>Education</h2>
-                <div class="card">
-                    <div class="card-title">British University of Bahrain</div>
-                    <div class="card-subtitle">BSc (Hons) Software Engineering (International) | 2025 – 2028 (Expected)</div>
-                </div>
-                <div class="card" style="margin-top: 15px;">
-                    <div class="card-title">British School of Bahrain</div>
-                    <div class="card-subtitle">A Levels: Biology, Chemistry, Mathematics | Completed: 2021</div>
+                <h2 class="text-xl font-bold mb-4 inline-block border-b-2 border-blue-600 pb-1" style="color: var(--text-main);">
+                    Education
+                </h2>
+                <div class="space-y-4">
+                    <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/40 hover:border-blue-500 transition-all">
+                        <div class="font-bold text-base" style="color: var(--text-main);">British University of Bahrain</div>
+                        <div class="text-sm text-blue-600 dark:text-blue-400 font-medium mt-0.5">BSc (Hons) Software Engineering (International)</div>
+                        <div class="text-xs mt-1 text-slate-500 dark:text-slate-400">2025 – 2028 (Expected)</div>
+                    </div>
+                    <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/40 hover:border-blue-500 transition-all">
+                        <div class="font-bold text-base" style="color: var(--text-main);">British School of Bahrain</div>
+                        <div class="text-sm text-blue-600 dark:text-blue-400 font-medium mt-0.5">A Levels: Biology, Chemistry, Mathematics</div>
+                        <div class="text-xs mt-1 text-slate-500 dark:text-slate-400">Completed: 2021</div>
+                    </div>
                 </div>
             </section>
         </div>
 
-        <section>
-            <h2>Technical Skills</h2>
-            <div class="tag-container">
-                <span class="tag">Python (Advanced)</span>
-                <span class="tag">Java (Intermediate)</span>
-                <span class="tag">C++ (Intermediate)</span>
-                <span class="tag">HTML5 / CSS3</span>
-                <span class="tag">JavaScript</span>
-                <span class="tag">Node.js</span>
-                <span class="tag">PHP</span>
-                <span class="tag">MySQL (Basic)</span>
-                <span class="tag">GDScript / Godot</span>
+        <!-- Technical Skills -->
+        <section class="mb-8">
+            <h2 class="text-xl font-bold mb-4 inline-block border-b-2 border-blue-600 pb-1" style="color: var(--text-main);">
+                Technical Skills
+            </h2>
+            <div class="flex flex-wrap gap-2.5">
+                <span class="tag-pill px-3.5 py-1.5 rounded-full text-xs font-semibold">Python (Advanced)</span>
+                <span class="tag-pill px-3.5 py-1.5 rounded-full text-xs font-semibold">Java (Intermediate)</span>
+                <span class="tag-pill px-3.5 py-1.5 rounded-full text-xs font-semibold">C++ (Intermediate)</span>
+                <span class="tag-pill px-3.5 py-1.5 rounded-full text-xs font-semibold">HTML5 / CSS3</span>
+                <span class="tag-pill px-3.5 py-1.5 rounded-full text-xs font-semibold">JavaScript</span>
+                <span class="tag-pill px-3.5 py-1.5 rounded-full text-xs font-semibold">Node.js</span>
+                <span class="tag-pill px-3.5 py-1.5 rounded-full text-xs font-semibold">PHP</span>
+                <span class="tag-pill px-3.5 py-1.5 rounded-full text-xs font-semibold">MySQL (Basic)</span>
+                <span class="tag-pill px-3.5 py-1.5 rounded-full text-xs font-semibold">GDScript / Godot</span>
             </div>
         </section>
 
-        <section>
-            <h2>Core Skills</h2>
-            <ul>
-                <li><strong>Leadership & Management:</strong> Captained esports and sports teams; managed esports teams in Europe.</li>
-                <li><strong>Professional:</strong> Time Management, Communication & Teamwork, Critical Thinking.</li>
-                <li><strong>Soft Skills:</strong> Diplomacy (Model United Nations), Adaptability & Willingness to Learn.</li>
+        <!-- Core Skills -->
+        <section class="mb-8">
+            <h2 class="text-xl font-bold mb-4 inline-block border-b-2 border-blue-600 pb-1" style="color: var(--text-main);">
+                Core Competencies
+            </h2>
+            <ul class="space-y-2.5 text-sm sm:text-base list-disc list-inside" style="color: var(--text-muted);">
+                <li><strong style="color: var(--text-main);">Leadership & Management:</strong> Captained esports and sports teams; managed esports teams in Europe.</li>
+                <li><strong style="color: var(--text-main);">Professional:</strong> Time Management, Communication & Teamwork, Critical Thinking.</li>
+                <li><strong style="color: var(--text-main);">Soft Skills:</strong> Diplomacy (Model United Nations), Adaptability & Willingness to Learn.</li>
             </ul>
         </section>
 
-        <div class="grid-section">
+        <!-- Two Column Grid for Projects & Languages -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <!-- Projects -->
             <section>
-                <h2>Projects</h2><br>
-                <a href="https://github.com/dharooncodes/EE_Proj_B" target="_blank" class="project-link">🔗 EE_Proj_B (GitHub)</a><br>
-                <a href="https://github.com/dharooncodes/EE_Proj_A" target="_blank" class="project-link">🔗 EE_Proj_A (GitHub)</a>
+                <h2 class="text-xl font-bold mb-4 inline-block border-b-2 border-blue-600 pb-1" style="color: var(--text-main);">
+                    Key Projects
+                </h2>
+                <div class="space-y-3">
+                    <a href="https://github.com/dharooncodes/EE_Proj_B" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/40 hover:border-blue-500 hover:text-blue-600 transition-all font-medium text-sm">
+                        <span>🔗 EE_Proj_B (GitHub Repository)</span>
+                        <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                    <a href="https://github.com/dharooncodes/EE_Proj_A" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/40 hover:border-blue-500 hover:text-blue-600 transition-all font-medium text-sm">
+                        <span>🔗 EE_Proj_A (GitHub Repository)</span>
+                        <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
             </section>
 
+            <!-- Languages -->
             <section>
-                <h2>Languages</h2>
-                <ul>
-                    <li><strong>Fluent:</strong> English, Urdu</li>
-                    <li><strong>Learning:</strong> Arabic, French, German, Punjabi</li>
+                <h2 class="text-xl font-bold mb-4 inline-block border-b-2 border-blue-600 pb-1" style="color: var(--text-main);">
+                    Languages
+                </h2>
+                <ul class="space-y-2 text-sm sm:text-base list-disc list-inside" style="color: var(--text-muted);">
+                    <li><strong style="color: var(--text-main);">Fluent:</strong> English, Urdu</li>
+                    <li><strong style="color: var(--text-main);">Learning:</strong> Arabic, French, German, Punjabi</li>
                 </ul>
             </section>
         </div>
 
+        <!-- Interests -->
         <section>
-            <h2>Interests</h2>
-            <div class="tag-container" style="margin-top: 10px;">
-                <span class="tag">Esports & Competitive Gaming</span>
-                <span class="tag">Team Sports & Leadership</span>
-                <span class="tag">Software Development</span>
-                <span class="tag">Fintech</span>
-                <span class="tag">Banking</span>
-                <span class="tag">Politics</span>
-                <span class="tag">Investment & Markets</span>
+            <h2 class="text-xl font-bold mb-4 inline-block border-b-2 border-blue-600 pb-1" style="color: var(--text-main);">
+                Interests & Hobbies
+            </h2>
+            <div class="flex flex-wrap gap-2.5">
+                <span class="tag-pill px-3.5 py-1.5 rounded-full text-xs font-semibold">Esports & Competitive Gaming</span>
+                <span class="tag-pill px-3.5 py-1.5 rounded-full text-xs font-semibold">Team Sports & Leadership</span>
+                <span class="tag-pill px-3.5 py-1.5 rounded-full text-xs font-semibold">Software Development</span>
+                <span class="tag-pill px-3.5 py-1.5 rounded-full text-xs font-semibold">Fintech</span>
+                <span class="tag-pill px-3.5 py-1.5 rounded-full text-xs font-semibold">Banking</span>
+                <span class="tag-pill px-3.5 py-1.5 rounded-full text-xs font-semibold">Politics</span>
+                <span class="tag-pill px-3.5 py-1.5 rounded-full text-xs font-semibold">Investment & Markets</span>
             </div>
         </section>
-    </div>
+
+    </main>
 
     <script>
-        // Check for saved user preference, if any, on load of the website
-        const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
         
-        if (currentTheme) {
-            document.body.setAttribute('data-theme', currentTheme);
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            updateThemeUI('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+            updateThemeUI('light');
         }
 
         function toggleTheme() {
-            const body = document.body;
-            if (body.getAttribute('data-theme') === 'dark') {
-                body.removeAttribute('data-theme');
-                localStorage.setItem('theme', 'light');
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            updateThemeUI(isDark ? 'dark' : 'light');
+        }
+
+        function updateThemeUI(theme) {
+            const themeText = document.getElementById('theme-text');
+            const themeIcon = document.getElementById('theme-icon');
+            if (theme === 'dark') {
+                themeText.textContent = 'Dark Mode';
+                themeIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />';
+                themeIcon.className = 'h-4 w-4 text-blue-400';
             } else {
-                body.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
+                themeText.textContent = 'Light Mode';
+                themeIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />';
+                themeIcon.className = 'h-4 w-4 text-amber-500';
             }
         }
     </script>
